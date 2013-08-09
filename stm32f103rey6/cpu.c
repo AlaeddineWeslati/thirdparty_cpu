@@ -5,6 +5,7 @@
  *      Author: pfeiffer
  */
 
+#include <stdio.h>
 #include "stdint.h"
 #include "stm32f10x_tim.h"
 
@@ -26,6 +27,16 @@ void restoreIRQ(unsigned oldPRIMASK)
 {
 	//PRIMASK lesen setzen
 	 __set_PRIMASK(oldPRIMASK);
+}
+
+void dINT(void)
+{
+  __disable_irq();
+}
+
+void eINT(void)
+{
+  __enable_irq();
 }
 
 
